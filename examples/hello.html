@@ -9,13 +9,15 @@
 <body>
   <div id="cesiumContainer"></div>
   <script>
+    Cesium.Ion.defaultAccessToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkZjQzYjY5NS0xYjkyLTQ2NzYtYjQ2MC1jM2YzNGQ5NWE3ZDIiLCJpZCI6Mjk4NjksInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTI4MTUyMzV9.cH0Ub9uiD2Z8r1bRfV4t6xfy7kOJI3GasHbcWVh4RPk";
     var viewer = new Cesium.Viewer("cesiumContainer");
 
     var tileset = new Cesium.Cesium3DTileset({
       // url: "./sampleDatas/simple3DTiles/tileset.json",
       url: "./sampleDatas/Tileset/tileset.json",
     });
-    
+
     tileset.readyPromise
       .then(function (tileset) {
         viewer.scene.primitives.add(tileset);
