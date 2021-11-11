@@ -1,35 +1,25 @@
 <!DOCTYPE html>
-<html lang="cn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      @import url(../Source/Widgets/widgets.css);
 
-      html,
-      body,
-      #cesiumContainer {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-    </style>
-  </head>
+<head>
+  <title>Hello World</title>
+  <link href="../Build/Cesium/Widgets/widgets.css" rel="stylesheet" />
+  <script
+    type="text/javascript"
+    src="./bb_javascript/require.js"
+    data-main="./bb_javascript/main"
+  ></script>
+</head>
 
-  <body>
-    <div id="cesiumContainer"></div>
-    <script type="module">
-      window.CESIUM_BASE_URL = "../Source/";
-      import * as Cesium from "../Source/Cesium.js";
-
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+    function onload(Cesium) {
       Cesium.Ion.defaultAccessToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkZjQzYjY5NS0xYjkyLTQ2NzYtYjQ2MC1jM2YzNGQ5NWE3ZDIiLCJpZCI6Mjk4NjksInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTI4MTUyMzV9.cH0Ub9uiD2Z8r1bRfV4t6xfy7kOJI3GasHbcWVh4RPk";
       var viewer = new Cesium.Viewer("cesiumContainer");
 
       var tileset = new Cesium.Cesium3DTileset({
+        // url: "./sampleDatas/simple3DTiles/tileset.json",
         url: "./sampleDatas/Tileset/tileset.json",
       });
 
@@ -48,6 +38,6 @@
         .otherwise(function (error) {
           console.log(error);
         });
-    </script>
-  </body>
-</html>
+    }
+  </script>
+</body>
